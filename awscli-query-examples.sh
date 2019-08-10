@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # AWS API Queries follow http://jmespath.org/specification.html, but not obvious to compile with very little documentation from AWS itself. So it's useful to have cheat-sheet of such.
+# Copy/Paste code snippets to use them. Do not run whole script. Bash header is just for syntax.
 
 # Describe external ELBs with SSL Cert in Listener and HTTPS protocol only
 aws --region us-west-1 elb describe-load-balancers --query "LoadBalancerDescriptions[?(Scheme=='internet-facing' && ListenerDescriptions[?Listener.SSLCertificateId != null] && ListenerDescriptions[?Listener.Protocol == 'HTTPS'])].{LoadBalancerName:LoadBalancerName, ListenerDescriptions:ListenerDescriptions[]}"
