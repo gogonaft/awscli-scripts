@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Check if you have any External ELBs with IAM|ACM SSL Certificate in them 
 ## Useful if you migrate from IAM SSL to ACM SSL or otherwise. Or just to verify that everything is set correctly
 ### iam
