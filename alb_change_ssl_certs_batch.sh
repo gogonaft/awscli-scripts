@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# AWS ALB - Change All port 443 HTTPS Protocol ALB Listeners SSL Certificate to new one of either IAM or ACM source 
+# AWS ALBs - Change All port 443 HTTPS Protocol ALB Listeners SSL Certificate to new one of either IAM or ACM source 
 ## Useful when you have old IAM SSL Cert installed and want to migrate to ACM. Or you just want to use completely different SSL Certificate.
 
 # envs
