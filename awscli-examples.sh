@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# AWS CLI - describe external elb with SSL Cert in Listener and HTTPS protocol only
+aws --region us-west-1 elb describe-load-balancers --query "LoadBalancerDescriptions[?(Scheme=='internet-facing' && ListenerDescriptions[?Listener.SSLCertificateId != null] && ListenerDescriptions[?Listener.Protocol == 'HTTPS'])].{LoadBalancerName:LoadBalancerName, ListenerDescriptions:ListenerDescriptions[]}"
+
 # Check if you have any External ELBs with IAM|ACM SSL Certificate in them 
 ## Useful if you migrate from IAM SSL to ACM SSL or otherwise. Or just to verify that everything is set correctly
 ### iam
