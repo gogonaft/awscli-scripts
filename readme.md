@@ -1,1 +1,1 @@
-AWS CLI Scripts (Automation/Administration related, Quick Task One-Liners, etc.)
+AWS CLI Scripts Collection (Automation/Administration related, Quick Task One-Liners, etc.)
