@@ -14,13 +14,13 @@ if [ $# -eq 0 ]
     echo "Result of search: (Output is S3 locations in a bucket)"
     #arr=$(aws s3api list-objects-v2 --bucket $s3_bucket --prefix $s3_prefix --query Contents[].[Size,Key] | xargs)
     arr=$(aws s3api list-objects-v2 --bucket $s3_bucket --prefix $s3_prefix --query Contents[].[Key] | xargs)
-    mkdir s3_find_temp
+    mkdir $TEMP_DIR
     for i in $arr; do aws s3 cp s3://$s3_bucket/$i $TEMP_DIR; done
     ls -ltrh $TEMP_DIR
   else
     echo "Working with script arguments..."
     arr=$(aws s3api list-objects-v2 --bucket $1 --prefix $2 --query Contents[].[Key] | xargs)
-    mkdir s3_find_temp
+    mkdir $TEMP_DIR
     for i in $arr; do aws s3 cp s3://$1/$i $TEMP_DIR; done
     ls -ltrh $TEMP_DIR
 fi
