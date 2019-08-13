@@ -5,7 +5,7 @@
 if [ $# -eq 0 ]
   then
     echo "No arguments supplied. Working with manual input..."
-    echo "Enter S3 bucket name: (Example: recordings-us-east-1 )"
+    echo "Enter S3 bucket name: (Example: bucket-name )"
     read s3_bucket
     echo "Enter S3 prefix in bucket: (Example: somedir/path-to-file or somedir/prefix-for-multiple-files )"
     read s3_prefix
