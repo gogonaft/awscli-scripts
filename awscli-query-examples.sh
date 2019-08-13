@@ -34,3 +34,8 @@ for REGION in us-east-1 us-west-1 eu-west-1 ap-southeast-1; do
     aws --region $REGION --output text elb describe-load-balancers --query "LoadBalancerDescriptions[?(Scheme=='internet-facing' && ListenerDescriptions[?Listener.SSLCertificateId != null]|[?starts_with(Listener.SSLCertificateId, 'arn:aws:acm')])].{ListenerSSLCert:ListenerDescriptions[].Listener.SSLCertificateId,LoadBalancerName:LoadBalancerName}"; 
 done
 
+# AWS ALB Listener's SSL Policy check
+aws elbv2 describe-listeners
+	--region $REGION
+	--load-balancer-arn arn:aws:elasticloadbalancing:us-east-1:1234567890:loadbalancer/app/internet-facing-alb/aaaabbbbccccdddd
+	--query 'Listeners[*].SslPolicy'
